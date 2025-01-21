@@ -25,8 +25,8 @@ if y:
       sd+=num*target[j+5]**2
   sd=[i**0.5 for i in sd]
   for i in range(5):
-    st.write(additives[i],"of",dic[i])
+    st.write(f"{dic[i]}: Mean: {additives[i]}, SD: {sd[i]}")
     if additives[i]>limits[i]:
       st.write("Mean of above additive exceeds daily limit of",limits[i],"mg by",additives[i]-limits[i],"mg")
     zscore=(additives[i]-limits[i])/sd[i]
-    st.write("Probability of exceeding limit of above additive, assuming normal distribution, is",norm.cdf(zscore))
+    st.write("Probability of exceeding limit of above additive, assuming normal distribution, is",norm.cdf(zscore)*100,"%")
