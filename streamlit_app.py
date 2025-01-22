@@ -33,7 +33,7 @@ if y:
         sd[j-1]+=num*target[j+5]**2
   sd=[i**0.5 for i in sd]
   for i in range(5):
-    st.write(f"{dic[i]}: Mean: {additives[i]}, SD: {sd[i]}")
+    st.write(f"{dic[i]}: Mean: {round(additives[i],3)}, SD: {round(sd[i],3)}")
     if additives[i]>limits[i]:
       st.write("Mean of above additive exceeds daily limit of",limits[i],"mg by",additives[i]-limits[i],"mg")
     if sd[i]>0:
