@@ -34,8 +34,9 @@ if y:
   sd=[i**0.5 for i in sd]
   for i in range(5):
     st.write(f"{dic[i]}: Mean: {round(additives[i],3)}, SD: {round(sd[i],3)}")
+    st.write(round(additives[i]/limits[i],2),"% of limit of",limits[i])
     if additives[i]>limits[i]:
-      st.write("Mean of above additive exceeds daily limit of",limits[i],"mg by",additives[i]-limits[i],"mg")
+      st.write("Mean of above additive exceeds daily limit by",additives[i]-limits[i],"mg")
     if sd[i]>0:
       zscore=(additives[i]-limits[i])/sd[i]
       st.write("Probability of exceeding limit of above additive, assuming normal distribution, is",norm.cdf(zscore)*100,"%")
