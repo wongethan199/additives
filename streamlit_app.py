@@ -18,18 +18,19 @@ except:
 limits=[i*weight for i in limits]
 y=st.text_input("Enter number of unique food items to test")
 if y:
-  y=int(y)
   additives=[0,0,0,0,0]
   sd=[0,0,0,0,0]
   dic=["Yellow 5","Yellow 6","Red 40","Red 3","Blue 1"]
-  for i in range(y):
+  for i in range(int(y)):
     z=st.selectbox("Enter food item "+str(i+1),x["Food"].values.tolist())
-    num=int(st.text_input(f"Enter quantity of food item {i+1} consumed in a day in g"))
-    target=x[x["Food"]==z]
-    target=list(target.iloc[0])
-    for j in range(1,6):
-      additives[j-1]+=num*target[j]
-      sd+=num*target[j+5]**2
+    num=st.text_input(f"Enter quantity of food item {i+1} consumed in a day in g")
+    if num:
+      num=float(num)
+      target=x[x["Food"]==z]
+      target=list(target.iloc[0])
+      for j in range(1,6):
+        additives[j-1]+=num*target[j]
+        sd+=num*target[j+5]**2
   sd=[i**0.5 for i in sd]
   for i in range(5):
     st.write(f"{dic[i]}: Mean: {additives[i]}, SD: {sd[i]}")
