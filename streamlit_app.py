@@ -10,7 +10,7 @@ if standards=="USFDA":
   limits=[5,3.75,7,2.5,12]
 if standards=="EFSA":
   limits[4]=12.5
-x=pandas.read_csv("additives.csv")
+x=pandas.read_csv("https://raw.githubusercontent.com/wongethan199/additives/refs/heads/main/additives.csv")
 try:
   weight=float(st.text_input("Enter body weight in kg, defaults to 60"))
 except:
