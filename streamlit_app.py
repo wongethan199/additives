@@ -30,7 +30,7 @@ if y:
       target=list(target.iloc[0])
       for j in range(1,6):
         additives[j-1]+=num*target[j]
-        sd+=num*target[j+5]**2
+        sd[j-1]+=num*target[j+5]**2
   sd=[i**0.5 for i in sd]
   for i in range(5):
     st.write(f"{dic[i]}: Mean: {additives[i]}, SD: {sd[i]}")
